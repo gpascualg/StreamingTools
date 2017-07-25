@@ -44,6 +44,10 @@ function arrayBufferToBase64(ab) {
 
 document.addEventListener('DOMContentLoaded', function () {
     var playlist = {
+        // USER CONFIG
+        showMusicBars: false,
+
+        // DO NOT TOUCH
         root: null,
         songs: [],
         current: 0,
@@ -132,15 +136,8 @@ document.addEventListener('DOMContentLoaded', function () {
                             0, 0, zoom_canvas.width, zoom_canvas.height);
             zoom.restore();
 
-            if (playlist.context && playlist.source && 1 == 0)
+            if (playlist.context && playlist.source && playlist.showMusicBars)
             {
-                if (playlist.gradient.update) {
-                    playlist.gradient.update = false;
-                    gradient = ctx.createRadialGradient(0, 0, cwidth / 2.0, 0, 0, cwidth / 3.0);
-                    gradient.addColorStop(1, playlist.gradient.values[0]);
-                    gradient.addColorStop(0, playlist.gradient.values[1]);
-                }
-
                 var array = new Uint8Array(playlist.analyser.frequencyBinCount);
                 playlist.analyser.getByteFrequencyData(array);
 
@@ -161,6 +158,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 ctx.save();
                 ctx.clearRect(0, 0, cwidth, cheight);
                 ctx.translate((video_bounds.left - bounds.left) + video_bounds.width / 2.0, (video_bounds.top - bounds.top) + video_bounds.height / 2.0);
+
+                if (playlist.gradient.update) {
+                    playlist.gradient.update = false;
+                    console.log((video_canvas.width / 2.5) + " " + (video_canvas.width / 1.5));
+                    gradient = ctx.createRadialGradient(0, 0, video_canvas.width / 2.5, 0, 0, video_canvas.width / 1.5);
+                    gradient.addColorStop(1, playlist.gradient.values[0]); // dreta
+                    gradient.addColorStop(0, playlist.gradient.values[1]);
+                }
+
                 for (var i = 0; i < meterNum; i++) {
                     var value = array[i * step] * (video_canvas.width / 4) / 255.0;
                     if (capYPositionArray.length < Math.round(meterNum)) {
@@ -335,6 +341,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         DOM.chat.className = 'hidden';
         DOM.zoom.className = 'hidden';
+
+        playlist.gradient.update = true;
     }
 
     function smallCam() {
@@ -347,6 +355,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         DOM.chat.className = 'hidden';
         DOM.zoom.className = 'hidden';
+
+        playlist.gradient.update = true;
     }
 
     // Setup sizes
@@ -475,7 +485,7 @@ document.addEventListener('DOMContentLoaded', function () {
         desktopCapturer.getSources({types: ['window', 'screen']}, (error, sources) => {
             if (error) throw error
 
-            var match = " - Microsoft Visual Studio";
+            var match = "Atom";
             for (let i = 0; i < sources.length; ++i) {
                 if (sources[i].name.length > match.length &&
                     sources[i].name.substring(sources[i].name.length - match.length) == match) {

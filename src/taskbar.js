@@ -33,8 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     ipcRenderer.on('gradient:new-gradient', (event, { payload }) => {
         var body = document.getElementsByTagName("BODY")[0];
+        var donate = document.getElementsByClassName('donate')[0];
         const { message } = payload;
         body.style.background = 'linear-gradient(to left, ' + message[0] + ' , ' + message[1] + ' )';
+        donate.style.background = 'linear-gradient(to left, ' + message[0] + ' , ' + message[1] + ' )';
     });
 
     ipcRenderer.on('radio:new-song', (event, { payload }) => {
@@ -45,5 +47,9 @@ document.addEventListener('DOMContentLoaded', function () {
         DOM.skip.className = '';
         DOM.title.innerHTML = message.tags.title;
         DOM.artist.innerHTML = message.tags.artist;
+
+        $('.donate').animate({opacity: 0}, 1000, function(){
+            setTimeout(function(){ $('.donate').animate({opacity: 1}, 1000) }, 15000);
+        });
     });
 });

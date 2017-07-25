@@ -9,11 +9,16 @@
     <script src="helpers/context_menu.js"></script>
     <script src="helpers/external_links.js"></script>
 
+    <script src="jquery-2.2.3.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
     <script src="taskbar.js"></script>
 </head>
 <body>
     <div class="taskbar">
-        <img src="img/monstercat.png" /> <span class="title">--</span> by <span class="artist">--</span>
+
+        <div class="donate">
+          ETH: <b>0x6D0E33F7036bA09e870F7730390a6D40882a0Ffa</b> | BTC: <b>1NxnyGRcGB82EL6kyYsEKPcms8s6br7C3t</b> | LTC: <b>LXV17dqN5TAnQ965LKW5Ad7diq6AC5uXSh</b>
+        </div>
+        <img src="img/monstercat.png" /> <span class="title">--</span> by <span class="artist">--</span> <span class="author">[By Blipi: Devs' Den]</span>
 
         <div class="radio-controls">
             <img class="button" id="eject" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUwLjUgNTAuNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTAuNSA1MC41OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjEyOHB4IiBoZWlnaHQ9IjEyOHB4Ij4KPGc+Cgk8cGF0aCBkPSJNMjUuMjUsMGMtNC4yMTcsMC04LjM5MiwxLjA2MS0xMi4wNzIsMy4wNjljLTAuNDg1LDAuMjY1LTAuNjY0LDAuODcyLTAuMzk5LDEuMzU3YzAuMjY1LDAuNDg1LDAuODc1LDAuNjY0LDEuMzU2LDAuMzk5ICAgQzE3LjUyNCwyLjk3NywyMS4zNjcsMiwyNS4yNSwyQzM4LjA3LDIsNDguNSwxMi40Myw0OC41LDI1LjI1UzM4LjA3LDQ4LjUsMjUuMjUsNDguNUMxMi40Myw0OC41LDIsMzguMDcsMiwyNS4yNSAgIGMwLTYuMjYxLDIuNDU1LTEyLjEzNSw2LjkxNC0xNi41MzlDOS4zMDcsOC4zMjMsOS4zMTEsNy42OSw4LjkyMyw3LjI5N2MtMC4zOS0wLjM5NC0xLjAyMi0wLjM5Ny0xLjQxNS0wLjAwOSAgIEMyLjY2NiwxMi4wNzEsMCwxOC40NSwwLDI1LjI1QzAsMzkuMTczLDExLjMyNyw1MC41LDI1LjI1LDUwLjVjMTMuOTIzLDAsMjUuMjUtMTEuMzI3LDI1LjI1LTI1LjI1QzUwLjUsMTEuMzI3LDM5LjE3MywwLDI1LjI1LDB6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8cGF0aCBkPSJNMjAuMzA0LDI5LjUwM2MwLDAuNTUyLDAuNDQ3LDEsMSwxaDE0LjY5OGMwLjM3MywwLDAuNzE2LTAuMjA4LDAuODg4LTAuNTM5YzAuMTcyLTAuMzMyLDAuMTQ0LTAuNzMxLTAuMDctMS4wMzYgICBMMjYuMDY3LDEzLjY0NmMtMC4zNzMtMC41MzMtMS4yNjEtMC41MzMtMS42MzYsMEwxMy42ODEsMjguOTI4Yy0wLjMxNywwLjQ1Mi0wLjIwOSwxLjA3NSwwLjI0MywxLjM5MyAgIGMwLjE3NSwwLjEyMywwLjM3NiwwLjE4MiwwLjU3NCwwLjE4MmMwLjMxNCwwLDAuNjI0LTAuMTQ4LDAuODE5LTAuNDI1bDkuOTMzLTE0LjEybDguODI2LDEyLjU0NEgyMS4zMDQgICBDMjAuNzUxLDI4LjUwMywyMC4zMDQsMjguOTUxLDIwLjMwNCwyOS41MDN6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8cGF0aCBkPSJNMTQuNDk5LDM3LjI3OWgyMS41MDNjMC41NTMsMCwxLTAuNDQ4LDEtMWMwLTAuNTUyLTAuNDQ3LTEtMS0xSDE0LjQ5OWMtMC41NTMsMC0xLDAuNDQ4LTEsMSAgIEMxMy40OTksMzYuODMxLDEzLjk0NiwzNy4yNzksMTQuNDk5LDM3LjI3OXoiIGZpbGw9IiMwMDAwMDAiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
