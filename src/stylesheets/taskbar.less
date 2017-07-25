@@ -1,0 +1,47 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    background: #333; //#00ff00;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.taskbar {
+    width: 100%;
+    height: 100%;
+    line-height: 45px;
+    padding: 0 10px 0 10px;
+
+    img {
+        position: relative;
+        float: left;
+        height: 30px;
+        top: 5px;
+        margin-right: 10px;
+    }
+
+    .title, .artist {
+        font-weight: bold;
+        font-size: 22px;
+    }
+
+    .radio-controls {
+        float: right;
+    }
+}

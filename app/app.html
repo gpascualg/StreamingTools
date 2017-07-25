@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="transparent">
+<head>
+    <meta charset="utf-8">
+    <title>Electron Boilerplate</title>
+
+    <link href="stylesheets/main.css" rel="stylesheet" type="text/css">
+
+    <script src="helpers/context_menu.js"></script>
+    <script src="helpers/external_links.js"></script>
+
+    <script src="app.js"></script>
+</head>
+<body>
+    <canvas class="fft" id="fft" width="400" height="400"></canvas>
+
+    <webview id="chat" class="hidden-visibility" name="disable-x-frame-options"
+        partition="persist:youtube" src="https://www.youtube.com/live_chat?v=aB_X9H6SvPU"></webview>
+
+    <video class="hidden" id="zoom-video" width="1920" height="1080"></video>
+    <canvas class="hidden" id="zoom" width="500" height="500"></canvas>
+
+    <div class="content">
+        <div class="container">
+            <video id="video" class="hidden" width="250" height="250" autoplay="autoplay"></video>
+            <canvas width="250" height="250" class="video_canvas"></canvas>
+            <img class="album hidden" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDYwIDYwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA2MCA2MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxnPgoJPHBhdGggZD0iTTMwLDBjLTAuNTUzLDAtMSwwLjQ0Ny0xLDF2MTMuMjkyYzAsMC41NTMsMC40NDcsMSwxLDFzMS0wLjQ0NywxLTFWMi4wMThDNDUuOTc5LDIuNTQ2LDU4LDE0Ljg5Niw1OCwzMCAgIGMwLDE1LjQzOS0xMi41NjEsMjgtMjgsMjhTMiw0NS40MzksMiwzMGMwLTcuNDYsMi45LTE0LjQ3OSw4LjE2Ni0xOS43NjRjMC4zOTEtMC4zOTIsMC4zODktMS4wMjQtMC4wMDItMS40MTQgICBDOS43NzIsOC40MzQsOS4xNCw4LjQzNCw4Ljc1LDguODI0QzMuMTA3LDE0LjQ4NiwwLDIyLjAwNywwLDMwYzAsMTYuNTQyLDEzLjQ1OCwzMCwzMCwzMHMzMC0xMy40NTgsMzAtMzBTNDYuNTQyLDAsMzAsMHoiIGZpbGw9IiMwMDAwMDAiLz4KCTxwYXRoIGQ9Ik0yOC41NTUsMzMuNTMyQzI5LjIyMywzNC40NTEsMzAuMzAxLDM1LDMxLjQzOCwzNWMwLjk1LDAsMS44NDUtMC4zNzEsMi41MTgtMS4wNDRjMC43MzctMC43MzcsMS4xMTQtMS43NTYsMS4wMzMtMi43OTcgICBzLTAuNjEyLTEuOTktMS40NTktMi42MDZsLTEyLjk0NC05LjM2M2MtMC4zOTYtMC4yODYtMC45NDUtMC4yNDItMS4yOTMsMC4xMDRjLTAuMzQ4LDAuMzQ4LTAuMzkxLDAuODk2LTAuMTA0LDEuMjkzTDI4LjU1NSwzMy41MzIgICB6IiBmaWxsPSIjMDAwMDAwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" id="album" />
+        </div>
+    </div>
+
+    <!-- build:remove -->
+    <!-- Connect to server process -->
+    <script>
+    require('electron-connect').client.create({port: 30081})
+    </script>
+    <!-- end:build -->
+</body>
+</html>

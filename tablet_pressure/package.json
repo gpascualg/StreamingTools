@@ -1,0 +1,18 @@
+{
+  "name": "tablet_pressure",
+  "version": "0.0.1",
+  "description": "Node Binding for WinTab.",
+  "keywords": [
+    "wintab", "graphics tablet"
+  ],
+  "license":"MIT",
+  "os" : [ "win32"],
+  "main": "tablet_pressure.js",
+  "private": false,
+  "gypfile": true,
+  "repository" :
+  {
+  "type" : "git",
+  "url" : "https://github.com/asd"
+  }
+}
