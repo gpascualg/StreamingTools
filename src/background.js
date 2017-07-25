@@ -155,7 +155,7 @@ app.on('ready', function () {
     annotationsWindow.setPosition(0, 0);
 
     if (env.name === 'development') {
-        youtubeWindow.openDevTools('undocked');
+        //youtubeWindow.openDevTools('undocked');
     }
 
     youtubeWindow.setIgnoreMouseEvents(true);
